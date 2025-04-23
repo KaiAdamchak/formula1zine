@@ -3,11 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formula 1 Zine</title>
-    <link rel="style" href="index.css">
+    <title>Digital Zine</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
 </head>
 <body>
-    <h1>hi lando xx</h1>
-    
+    <div class="container">
+        <header>
+            <h1>Digital Zine</h1>
+            <p>An interactive p5.js experience</p>
+        </header>
+        
+        <button class="menu-button" onclick="toggleMenu()" aria-label="Toggle navigation menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <div class="page-navigation">
+            <a href="#page0">Cover</a>
+            <a href="#page1">Page 1</a>
+            <a href="#page2">Page 2</a>
+            <a href="#page3">Page 3</a>
+            <a href="#page4">Page 4</a>
+            <a href="#page5">Page 5</a>
+            <a href="#page6">Page 6</a>
+            <a href="#page7">Back Cover</a>
+        </div>
+        
+        <div class="overlay" onclick="toggleMenu()"></div>
+        
+        <div id="page0" class="page">
+            <h2>Cover Page</h2>
+            <div class="canvas-container" id="canvas0"></div>
+        </div>
+        
+        <div id="page1" class="page">
+            <h2>Page 1</h2>
+            <div class="canvas-container" id="canvas1"></div>
+        </div>
+        
+        <div id="page2" class="page">
+            <h2>Page 2</h2>
+            <div class="canvas-container" id="canvas2"></div>
+        </div>
+        
+        <div id="page3" class="page">
+            <h2>Page 3</h2>
+            <div class="canvas-container" id="canvas3"></div>
+        </div>
+        
+        <div id="page4" class="page">
+            <h2>Page 4</h2>
+            <div class="canvas-container" id="canvas4"></div>
+        </div>
+        
+        <div id="page5" class="page">
+            <h2>Page 5</h2>
+            <div class="canvas-container" id="canvas5"></div>
+        </div>
+        
+        <div id="page6" class="page">
+            <h2>Page 6</h2>
+            <div class="canvas-container" id="canvas6"></div>
+        </div>
+        
+        <div id="page7" class="page">
+            <h2>Back Cover</h2>
+            <div class="canvas-container" id="canvas7"></div>
+        </div>
+        
+        <footer>
+            <p>© 2025 Digital Zine - Created with p5.js</p>
+        </footer>
+    </div>
+
+    <script>
+        // Create blank canvas placeholders with portrait dimensions (264x408)
+        createBlankCanvas('canvas0', 264, 408);
+        createBlankCanvas('canvas1', 264, 408);
+        createBlankCanvas('canvas2', 264, 408);
+        createBlankCanvas('canvas3', 264, 408);
+        createBlankCanvas('canvas4', 264, 408);
+        createBlankCanvas('canvas5', 264, 408);
+        createBlankCanvas('canvas6', 264, 408);
+        createBlankCanvas('canvas7', 264, 408);
+        
+        // Function to create a blank canvas placeholder
+        function createBlankCanvas(canvasId, width, height) {
+            new p5(function(p) {
+                p.setup = function() {
+                    let canvas = p.createCanvas(width, height);
+                    
+                    // Make canvas responsive on very small screens
+                    if (window.innerWidth < 300) {
+                        let containerWidth = document.getElementById(canvasId).offsetWidth;
+                        let scale = containerWidth / width;
+                        canvas.style('width', '100%');
+                        canvas.style('height', 'auto');
+                    }
+                    
+                    p.background(240);
+                    
+                    // Draw placeholder text
+                    p.fill(150);
+                    p.textSize(16);
+                    p.textAlign(p.CENTER, p.CENTER);
+                    p.text("Your p5.js sketch will go here", p.width/2, p.height/2);
+                    
+                    // Draw outline
+                    p.noFill();
+                    p.stroke(200);
+                    p.rect(0, 0, p.width-1, p.height-1);
+                };
+            }, canvasId);
+        }
+        
+        // Toggle hamburger menu
+        function toggleMenu() {
+            document.querySelector('.page-navigation').classList.toggle('open');
+            document.querySelector('.overlay').classList.toggle('open');
+        }
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.page-navigation a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 20,
+                    behavior: 'smooth'
+                });
+                
+                // Close menu after clicking a link
+                toggleMenu();
+            });
+        });
+        
+        // Handle resize events
+        window.addEventListener('resize', function() {
+            // If needed, adjust canvas sizing based on screen width
+            if (window.innerWidth < 300) {
+                document.querySelectorAll('.canvas-container').forEach(container => {
+                    container.style.width = '100%';
+                    container.style.height = 'auto';
+                });
+            } else {
+                document.querySelectorAll('.canvas-container').forEach(container => {
+                    container.style.width = '264px';
+                    container.style.height = '408px';
+                });
+            }
+        });
+    </script>
 </body>
 </html>
