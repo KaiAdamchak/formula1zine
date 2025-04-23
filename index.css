@@ -68,7 +68,7 @@ h2 {
 @media (max-width: 300px) {
     .canvas-container {
         width: 100%;
-        height: auto;
+        height: 480;
         aspect-ratio: 264/480;
     }
 }
