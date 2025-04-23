@@ -61,7 +61,7 @@ h2 {
     justify-content: center;
     margin: 10px 0;
     width: 264px;
-    height: 408px;
+    height: 450px;
 }
 
 /* Make sure canvas doesn't overflow on very small screens */
@@ -69,7 +69,7 @@ h2 {
     .canvas-container {
         width: 100%;
         height: auto;
-        aspect-ratio: 264/408;
+        aspect-ratio: 264/450;
     }
 }
 
