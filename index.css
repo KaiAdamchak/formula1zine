@@ -46,7 +46,7 @@ h2 {
 /* Pages container to hold the grid */
 .pages-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Stack vertically by default (mobile) */
     width: 100%;
 }
 
@@ -65,11 +65,22 @@ h2 {
 
 /* For desktop screens, show pages in 4 columns */
 @media (min-width: 800px) {
-   .pages-container {
+    .pages-container {
         justify-content: space-between;
     }   
     .page {
         width: calc(25% - 15px); /* Four columns with spacing */
+    }
+}
+
+/* IMPORTANT: Add this additional rule for mobile specifically */
+@media (max-width: 767px) {
+    .pages-container {
+        flex-direction: column; /* Force vertical stacking on mobile */
+    }
+    
+    .page {
+        width: 100%; /* Full width on mobile */
     }
 }
 
