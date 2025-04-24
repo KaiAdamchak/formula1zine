@@ -33,51 +33,54 @@
         
         <div class="overlay" onclick="toggleMenu()"></div>
         
-        <div id="page0" class="page">
-            <div class="canvas-container">
-                <iframe src="https://editor.p5js.org/KaiAdamchak/full/SHBf5gmAK" width="264" height="450" frameborder="0"></iframe>
+        <!-- Added a pages-container div to group all pages -->
+        <div class="pages-container">
+            <div id="page0" class="page">
+                <div class="canvas-container">
+                    <iframe src="https://editor.p5js.org/KaiAdamchak/full/SHBf5gmAK" width="264" height="450" frameborder="0"></iframe>
+                </div>
             </div>
-        </div>
-        
-        <div id="page1" class="page">
-            <div class="canvas-container">
-                <iframe src="https://editor.p5js.org/KaiAdamchak/full/6k--Ozsn8" width="264" height="450" frameborder="0"></iframe>
+            
+            <div id="page1" class="page">
+                <div class="canvas-container">
+                    <iframe src="https://editor.p5js.org/KaiAdamchak/full/6k--Ozsn8" width="264" height="450" frameborder="0"></iframe>
+                </div>
             </div>
-        </div>
-        
-        <div id="page2" class="page">
-            <div class="canvas-container">
-                <iframe src="https://editor.p5js.org/KaiAdamchak/full/sI9Xay8ui" width="264" height="450" frameborder="0"></iframe>
+            
+            <div id="page2" class="page">
+                <div class="canvas-container">
+                    <iframe src="https://editor.p5js.org/KaiAdamchak/full/sI9Xay8ui" width="264" height="450" frameborder="0"></iframe>
+                </div>
             </div>
-        </div>
-        
-        <div id="page3" class="page">
-            <div class="canvas-container">
-                <iframe src="https://editor.p5js.org/KaiAdamchak/full/dVRzxVaFr" width="264" height="450" frameborder="0"></iframe>
+            
+            <div id="page3" class="page">
+                <div class="canvas-container">
+                    <iframe src="https://editor.p5js.org/KaiAdamchak/full/dVRzxVaFr" width="264" height="450" frameborder="0"></iframe>
+                </div>
             </div>
-        </div>
-        
-        <div id="page4" class="page">
-            <div class="canvas-container">
-                <iframe src="https://editor.p5js.org/KaiAdamchak/full/YdfrPhVv7" width="264" height="450" frameborder="0"></iframe>
+            
+            <div id="page4" class="page">
+                <div class="canvas-container">
+                    <iframe src="https://editor.p5js.org/KaiAdamchak/full/YdfrPhVv7" width="264" height="450" frameborder="0"></iframe>
+                </div>
             </div>
-        </div>
-        
-        <div id="page5" class="page">
-            <div class="canvas-container">
-                <iframe src="https://editor.p5js.org/KaiAdamchak/full/qlruOad4q" width="264" height="450" frameborder="0"></iframe>
+            
+            <div id="page5" class="page">
+                <div class="canvas-container">
+                    <iframe src="https://editor.p5js.org/KaiAdamchak/full/qlruOad4q" width="264" height="450" frameborder="0"></iframe>
+                </div>
             </div>
-        </div>
-        
-        <div id="page6" class="page">
-            <div class="canvas-container">
-                <iframe src="https://editor.p5js.org/KaiAdamchak/full/flY5hlgEI" width="264" height="450" frameborder="0"></iframe>
+            
+            <div id="page6" class="page">
+                <div class="canvas-container">
+                    <iframe src="https://editor.p5js.org/KaiAdamchak/full/flY5hlgEI" width="264" height="450" frameborder="0"></iframe>
+                </div>
             </div>
-        </div>
-        
-        <div id="page7" class="page">
-            <div class="canvas-container">
-                <iframe src="https://editor.p5js.org/KaiAdamchak/full/W4znxrLIS" width="264" height="450" frameborder="0"></iframe>
+            
+            <div id="page7" class="page">
+                <div class="canvas-container">
+                    <iframe src="https://editor.p5js.org/KaiAdamchak/full/W4znxrLIS" width="264" height="450" frameborder="0"></iframe>
+                </div>
             </div>
         </div>
         
@@ -141,7 +144,7 @@
             });
         });
         
-        // Handle resize events
+        // Updated resize handler to account for different layouts
         window.addEventListener('resize', function() {
             // If needed, adjust canvas sizing based on screen width
             if (window.innerWidth < 300) {
@@ -151,7 +154,7 @@
                 });
             } else {
                 document.querySelectorAll('.canvas-container').forEach(container => {
-                    container.style.width = '300px';
+                    container.style.width = '264px';
                     container.style.height = '450px';
                 });
             }
