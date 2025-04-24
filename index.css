@@ -46,14 +46,14 @@ h2 {
 /* Pages container to hold the grid */
 .pages-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 100%;
 }
 
 /* For tablets and larger screens, show pages in 2 columns */
 @media (min-width: 768px) {
     .pages-container {
-        display: flex;
+        flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-around;
     }
@@ -64,11 +64,10 @@ h2 {
 }
 
 /* For desktop screens, show pages in 4 columns */
-@media (min-width: 1200px) {
-    .pages-container {
+@media (min-width: 800px) {
+   .pages-container {
         justify-content: space-between;
-    }
-    
+    }   
     .page {
         width: calc(25% - 15px); /* Four columns with spacing */
     }
